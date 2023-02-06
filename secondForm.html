@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mobileStyle.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="formBody">
+            <div class="form">
+                <div class="mt-1">
+                    <label class="ml-2">High School Certificate<span class="text-red">*</span></label>
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <input type="text" id="highInstitutionName" class="form-control" placeholder="Institution name"/>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <select class="form-control" id="highBoard"> 
+                                <option value="">Select High School Board</option>
+                                <option value="CBSE">CBSE</option>
+                                <option value="ICSC">ICSE</option>
+                                <option value="State Board">State Board</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <input type="number" id="highScore" class="form-control" placeholder="Score in percentage"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <label class="ml-2">Secondry School Certificate<span class="text-red">*</span></label>
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <input type="text" id="secondryInstitutionName" class="form-control" placeholder="Institution name"/>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <select class="form-control" id="secondryBoard">
+                                <option value="">Select Secondry School Board</option>
+                                <option value="CBSE">CBSE</option>
+                                <option value="ICSC">ICSC</option>
+                                <option value="State Board">State Board</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <input type="number" id="secondryScore" class="form-control" placeholder="Score in percentage"/>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <label class="ml-2">Currently pursuing<span class="text-red">*</span></label>
+                    <select id="pursuing" class="input1">
+                        <option>Select</option>
+                        <option value="BCA">BCA</option>
+                        <option value="B.Sc">B.Sc</option>
+                        <option value="B-Tech">B-Tech</option>
+                        <option value="M-Tech">M-Tech</option>
+                    </select>
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <input type="text" id="currentInstuteName" class="form-control" placeholder="Current educational Institution name"/>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <input type="number" id="currentScore" class="form-control" placeholder="Overall percentage"/>
+                        </div>
+                    </div>
+                    <input type="checkbox" id="backlogsCheckbox" class="ml-2 mt-5"/><span class="ml-3">If any Backlogs</span>
+                    <div class="row d-none" id="backlogsDiv">
+                        <div class="col-md-6 col-12">
+                            <input type="number" id="backlogs" class="form-control" placeholder="Backlogs if any"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ml-2">
+                    <div class="row mt-5" style="margin-top: 20px;">
+                        <a href="index.html" class="btn">Previous</a>
+                        <a  class="btn ml-5" id="nextBtn">Next</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let checkBoxButton = document.getElementById("backlogsCheckbox");
+        let backlogsDiv = document.getElementById("backlogsDiv");
+        checkBoxButton.addEventListener("change", function(){
+            backlogsDiv.classList.toggle("d-none");
+        });
+
+
+        let highInstitutionName;
+        let highBoard;
+        let highScore;
+        let secondryInstitutionName;
+        let secondryBoard;
+        let secondryScore;
+        let currentInstuteName;
+        let currentScore;
+        let backlogs;
+
+        let nextBtn = document.getElementById("nextBtn");
+        nextBtn.addEventListener("click", function(){
+            highInstitutionName = document.getElementById("highInstitutionName").value;
+            highBoard = document.getElementById("highBoard").value;
+            highScore = document.getElementById("highScore").value;
+            secondryInstitutionName = document.getElementById("secondryInstitutionName").value;
+            secondryBoard = document.getElementById("secondryBoard").value;
+            secondryScore = document.getElementById("secondryScore").value;
+            currentInstuteName = document.getElementById("currentInstuteName").value;
+            currentScore = document.getElementById("currentScore").value;
+            let Cbacklogs = document.getElementById("backlogs").value;
+            if(Cbacklogs == "") backlogs = 0;
+            else backlogs = Cbacklogs;
+
+            if(highInstitutionName == "") alert("Fill the High School Institute Name");
+            else if(highBoard == "") alert("Fill the option of High School Board");
+            else if(highScore == "") alert("Fill the High School Score");
+            else if(secondryInstitutionName == "") alert("Fill Secondry School Institute Name");
+            else if(secondryBoard == "") alert("Fill the option of Secondry School Board");
+            else if(secondryScore == "") alert("Fill the Secondry School Score");
+            else if(currentInstuteName == "") alert("Fill the Current Institute Name");
+            else if(currentScore == "") alert("Fill the Current Score");
+            else{ storeData ();
+            window.location.href="thirdForm.html";
+            }
+        }); 
+
+        function storeData(){
+            localStorage.setItem("highInstitutionName", highInstitutionName);
+            localStorage.setItem("highBoard",highBoard);
+            localStorage.setItem("highScore",highScore);
+            localStorage.setItem("secondryInstitutionName",secondryInstitutionName);
+            localStorage.setItem("secondryBoard",secondryBoard);
+            localStorage.setItem("secondryScore",secondryScore);
+            localStorage.setItem("currentInstuteName",currentInstuteName);
+            localStorage.setItem("currentScore",currentScore);
+            localStorage.setItem("backlogs",backlogs);
+        }
+        
+        function setData(){
+            highInstitutionName = localStorage.getItem("highInstitutionName");
+            highBoard = localStorage.getItem("highBoard");
+            highScore = localStorage.getItem("highScore");
+            secondryInstitutionName = localStorage.getItem("secondryInstitutionName");
+            secondryBoard = localStorage.getItem("secondryBoard");
+            secondryScore = localStorage.getItem("secondryScore");
+            currentInstuteName = localStorage.getItem("currentInstuteName");
+            currentScore = localStorage.getItem("currentScore");
+            backlogs = localStorage.getItem("backlogs");
+
+            document.getElementById("highInstitutionName").value = highInstitutionName;
+            if(highBoard != null) document.getElementById("highBoard").value = highBoard;
+            
+            document.getElementById("highScore").value = highScore;
+            document.getElementById("secondryInstitutionName").value = secondryInstitutionName;
+            if(secondryBoard != null) document.getElementById("secondryBoard").value = secondryBoard;
+            document.getElementById("secondryScore").value = secondryScore;
+            document.getElementById("currentInstuteName").value = currentInstuteName;
+            document.getElementById("currentScore").value = currentScore;
+
+            if(backlogs > 0){
+                checkBoxButton.checked = true;
+                backlogsDiv.classList.remove("d-none");
+                document.getElementById("backlogs").value = backlogs;
+            }
+            
+        }
+        setData();
+
+
+    </script>
+</body>
+</html>

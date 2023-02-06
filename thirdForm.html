@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mobileStyle.css"/>
+</head>
+<body>
+    
+
+    <div class="container">
+        <div class="formBody">
+    
+
+
+            <div class="form">
+                <div class="mt-5">
+                    <label class="ml-2">Recent passport size photograph (image size less than 4MB)<span class="text-red">*</span></label>
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="file" class="form-control" id="inputPhoto" accept=".png, .jpg, jpeg " onchange="dataChange(this)" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <label class="ml-2">High School Mark sheet (image size less than 4MB)<span class="text-red">*</span></label>
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="file" class="form-control" id="inputHSM" accept=".png, .jpg, .jpeg , .doc, .docx, .pdf" onchange="dataChange1(this)" required/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <label class="ml-2">Secondry School Mark sheet (image size less than 4MB)<span class="text-red">*</span></label>
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="file" class="form-control" id="inputSSM" accept=".png, .jpg, .jpeg , .doc, .docx, .pdf" onchange="dataChange2(this)" required/>
+                        </div>
+                        </div>
+                        </div>
+            
+                <div class="mt-5">
+                    <label class="ml-2">All semesters mark sheet in a single PDF or Docs (file size less than 10MB)<span class="text-red">*</span></label>
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="file" class="form-control" id="semester_mark" accept=".doc, .docx, .pdf" onchange="dataChange3(this)" required/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ml-2">
+                    <div class="row mt-5" style="margin-top: 20px;">
+                        <a href="secondForm.html" class="btn">Previous</a>
+                        <a href="#" class="btn ml-5" id="submitBtn">Submit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let photo = document.getElementById("inputPhoto");
+        let hsm = document.getElementById("inputHSM");
+        let ssm = document.getElementById("inputSSM");
+        let semester = document.getElementById("semester_mark")
+        let submitBtn = document.getElementById("submitBtn");
+
+        let photoSize = 0;
+        let hsmSize = 0;
+        let ssmSize = 0;
+        let marksheet = 0;
+        function dataChange(target){
+            photoSize = target.files[0].size;
+        }
+        function dataChange1(target){
+            hsmSize = target.files[0].size;
+        }
+        function dataChange2(target){
+            ssmSize = target.files[0].size;
+        }
+        function dataChange3(target){
+            marksheet= target.files[0].size;
+        }
+        submitBtn.addEventListener("click", function(){
+            if(photoSize > 4194304 || photoSize == 0) alert("Photo Size To Long.");
+            else if(hsmSize > 419404 || hsmSize == 0) alert("High School Marksheet size is too long.");
+            else if(ssmSize > 10485760 || ssmSize == 0) alert("Secondry School Marksheet size is too long.");
+            else if(marksheet > 10485760 || marksheet == 0) alert("Semester Marksheet size is too long.");
+            else{
+                alert("Submitted Successfully");
+                localStorage.clear();
+            }
+        });
+
+    </script>
+</body>
+</html>

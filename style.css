@@ -1,0 +1,107 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4070f4;
+}
+
+.mt-1{
+    margin-top: 2px;
+    
+}
+
+.mt-5{
+    margin-top: 10px;
+}
+
+.ml-2{
+    margin-left: 4px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.ml-5{
+    margin-left:4px;
+}
+.d-none{
+    display: none!important;
+}
+.d-block{
+    display: block!important;
+}
+.text-red{
+    color: red;
+}
+.container{
+    width: 100%;
+    height: 100%;
+}
+.row{
+    display: flex;
+    width: 100%;
+}
+.col-12{
+    width: 100%;
+    padding: 5px;
+
+}
+.form-control{
+    width: 100%;
+    font-size: 17px;
+    padding: 8px;
+}
+
+.btn{
+    padding: 10px 20px;
+    background-color: rgb(113, 93, 213);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color: rgb(42, 39, 226);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.formBody{
+    background-color: white;
+    width: 90%;
+    position: absolute;
+    left: 50%;
+    top: 25px;
+    transform: translate(-50%, 0%);
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgb(45, 43, 43);
+}
+input[type="radio"],
+input[type="checkbox"]{
+    border: 0px;
+    width: 2em;
+    height: 1.5em;
+}
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+.border{
+    border: 1px solid gray;
+}
+
+.image-control{
+    width: 100px;
+    position: relative;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}

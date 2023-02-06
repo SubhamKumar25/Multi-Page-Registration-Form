@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mobileStyle.css"/>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="formBody">
+            <div class="form">
+                <div class="mt1">
+                    <h2>Multi-page Registration Form</h2><br>
+                    <lable class="ml-2">Name<span class="text-red">*</span></lable>
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <input type="text" id="firstName" name="firstName" class="form-control" placeholder="First" />
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Last"/>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-5">
+                    <label class="ml-2">Date of Birth<span class="text-red">*</span></label>
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <input type="date" id="dob" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <label class="ml-2">Email<apn class="text-red">*</apn></label>
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <input type="email" id="emailId" placeholder="Email" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <label class="ml-2">Father's Name <span class="text-red">*</span></label>
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <input type="text" id="fFirstName" class="form-control" placeholder="First"/>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <input type="text" id="fLastName" class="form-control" placeholder="Last"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <label class="ml-2">Mother's Name<span class="text-red">*</span></label>
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <input type="text" id="mFirstName" class="form-control" placeholder="First"/>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <input type="text" id="mLastName" class="form-control" placeholder="Last"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <label class="ml-2">Gender<span class="text-red">*</span></label>
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <input type="radio" id="gender" class="male" value="M" name="gender"/><span for="male" class="ml-3">Male</span>
+                        <input type="radio" id="gender" class="female" value="F" name="gender" class="ml-5"/><span for="female" class="ml-3">Female</span>
+                    </div>  
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <label class="ml-2">Nationality<span class="text-red">*</span></label>
+                <div class="col-md-6 col-12">
+                    <input type="text" id="nationality" class="form-control"/>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <label class="ml-2">Home Address<span class="text-red">*</span></label>
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <input text="text" id="streetAddress" class="form-control" placeholder="Street Address"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <input type="text" id="city" class="form-control" placeholder="City"/>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <select class="form-control" id="country">
+                             <option value="">Country</option>
+                            <option value="Afghanistan">Afghanistan</option>
+                            <option value="Albania">Albania</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="China">China</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Ethiopia">Ethiopia</option>
+                            <option value="France">France</option>
+                            <option value="Greece">Greec</option>
+                            <option value="Hong Kong">Hong Kong</option>
+                            <option value="India">India</option>
+                            <option value="Indonesia">Indonesia</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <label class="ml-2">Telephone - Home</label>
+                <div class="col-md-6 col-12">
+                    <input type="number" id="teleHome" class="form-control" placeholder="### ### ####"/>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <label class="ml-2">Telephone - Mobile<span class="text-red">*</span></label>
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <input type="number" id="teleMobile" class="form-control" placeholder="### ### ####"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5 ml-2">
+                <a id="nextBtn" class="btn">Next</a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+
+            document.getElementsByClassName("male").setAttribute = "checked";
+
+            let firstName;
+            let lastName;
+            let dob ;
+            let emailId ;
+            let fFirstName ;
+            let fLastName ;
+            let mFirstName ;
+            let mLastName ;
+            let gender ;
+            let nationality ;
+            let streetAddress ;
+            let city ;
+            let country ;
+            let teleHome ;
+            let teleMobile ;
+
+            let nextbtn = document.getElementById("nextBtn");
+
+            nextbtn.addEventListener("click", function(){
+                
+                
+                firstName = document.getElementById("firstName").value;
+                lastName = document.getElementById("lastName").value;
+                dob = document.getElementById("dob").value;
+                emailId = document.getElementById("emailId").value;
+                fFirstName = document.getElementById("fFirstName").value;
+                fLastName = document.getElementById("fLastName").value;
+                mFirstName = document.getElementById("mFirstName").value;
+                mLastName = document.getElementById("mLastName").value;
+                gender = document.getElementById("gender").value;
+                nationality = document.getElementById("nationality").value;
+                streetAddress = document.getElementById("streetAddress").value;
+                city = document.getElementById("city").value;
+                country = document.getElementById("country").value;
+                teleHome = document.getElementById("teleHome").value;
+                teleMobile = document.getElementById("teleMobile").value;
+
+                if(firstName == "" || lastName == "") alert("Please Fill Name Field!");
+                else if(dob == "") alert("Please select Date of Birth!");
+                else if(emailId == "") alert("Please Fill email Id!");
+                else if(fFirstName == "" || fLastName == "") alert("Please Fill Father's Name");
+                else if(mFirstName == "" || mLastName == "") alert("Please Fill Mother's Name");
+                else if(gender == "") alert("Please Select Gender");
+                else if(nationality == "") alert("Please Fill Nationality");
+                else if(streetAddress == "") alert("Please Fill Street Address");
+                else if(city == "") alert("Please Fill City");
+                else if(country == "") alert("Please Fill Country");
+                else if(teleHome == "") alert("Please Fill Telephone Home");
+                else if(teleHome.length != 10) alert("Type a valid Home Number");
+                else if(teleMobile == "") alert("Please Fill Telephone Mobile");
+                else if(teleMobile.length != 10) alert("Type a valid Mobile Number");
+                else{
+                    
+                    localStorage.setItem("firstName",firstName);
+                    localStorage.setItem("lastName",lastName);
+                    localStorage.setItem("dob",dob);
+                    localStorage.setItem("emailId",emailId);
+                    localStorage.setItem("fFirstName",fFirstName);
+                    localStorage.setItem("fLastName",fLastName);
+                    localStorage.setItem("mFirstName", mFirstName);
+                    localStorage.setItem("mLastName", mLastName);
+                    localStorage.setItem("gender",gender);
+                    localStorage.setItem("nationality",nationality);
+                    localStorage.setItem("streetAddress",streetAddress);
+                    localStorage.setItem("city",city);
+                    localStorage.setItem("country",country);
+                    localStorage.setItem("teleHome",teleHome);
+                    localStorage.setItem("teleMobile",teleMobile);
+                    window.location.href="secondForm.html";
+                }
+                
+            });
+            function setDataInForm(){
+                firstName = localStorage.getItem("firstName");
+                lastName = localStorage.getItem("lastName");
+                dob = localStorage.getItem("dob");
+                emailId = localStorage.getItem("emailId");
+                fFirstName = localStorage.getItem("fFirstName");
+                fLastName = localStorage.getItem("fLastName");
+                mFirstName = localStorage.getItem("mFirstName");
+                mLastName = localStorage.getItem("mLastName");
+                gender = localStorage.getItem("gender");
+                nationality = localStorage.getItem("nationality");
+                streetAddress = localStorage.getItem("streetAddress");
+                city = localStorage.getItem("city");
+                country = localStorage.getItem("country");
+                teleHome = localStorage.getItem("teleHome");
+                teleMobile = localStorage.getItem("teleMobile");
+
+
+                document.getElementById("firstName").value = firstName;
+                document.getElementById("lastName").value = lastName;
+                document.getElementById("dob").value = dob;
+                document.getElementById("emailId").value = emailId;
+                document.getElementById("fFirstName").value = fFirstName;
+                document.getElementById("fLastName").value = fLastName;
+                document.getElementById("mFirstName").value = mFirstName;
+                document.getElementById("mLastName").value = mLastName;
+                document.getElementById("nationality").value = nationality;
+                document.getElementById("streetAddress").value = streetAddress;
+                document.getElementById("city").value = city;
+                document.getElementById("teleHome").value = teleHome;
+                document.getElementById("teleMobile").value = teleMobile;
+                if(country != null) document.getElementById("country").value = country;
+                if(gender != null) document.getElementById("gender").value = gender;
+            }
+            setDataInForm();
+            
+    </script>
+
+</body>
+</html>
